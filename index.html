@@ -64,6 +64,31 @@
       height: 100%;
     }
 
+    /* Estilos para el botón de recarga integrado del segundo código */
+    .centerfull {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      z-index: 10;
+    }
+
+    #btnIframe {
+      background: rgba(156, 39, 176, 0.8);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+      transition: background 0.3s ease;
+    }
+
+    #btnIframe:hover {
+      background: rgba(156, 39, 176, 1);
+    }
+
     .footer-info {
       text-align: center;
       padding: 20px;
@@ -71,6 +96,8 @@
       opacity: 0.6;
     }
   </style>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -81,9 +108,21 @@
 
   <main>
     <div class="video-container">
-      <!-- Atributo sandbox eliminado para evitar la Protección Anti-Sandbox -->
-      <iframe allowfullscreen="true" scrolling="no" src="https://latamvidzfy.org/telemundo.php" 
-              allow="encrypted-media" frameborder="0"></iframe>
+      <iframe 
+        id="embedIframe"
+        allowfullscreen="true" 
+        scrolling="no" 
+        src="https://la18hd.com/vivo/canal.php?stream=dsports" 
+        allow="encrypted-media" 
+        frameborder="0"
+        sandbox="allow-scripts allow-same-origin allow-forms">
+      </iframe>
+
+      <div class="centerfull">
+        <button id="btnIframe" onclick="document.getElementById('embedIframe').src += ''">
+          Recargar Página
+        </button>
+      </div>
     </div>
   </main>
 
